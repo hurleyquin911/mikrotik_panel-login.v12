@@ -11,22 +11,34 @@
 
 <body>
     <div class="container">
-        <form>
+        <form action="{{ route('login.post') }}" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">IP addres</label>
-                <input type="text" class="form-control" name="ip" aria-describedby="emailHelp">
+                <input type="text" class="form-control @error('ip') is-invalid @enderror " name="ip"
+                    aria-describedby="emailHelp">
+                @error('ip')
+                    <div id="emailHelp" class="form-text alert alert-danger">{{ $message }}</div>
+                @enderror
 
             </div>
 
-            <div class="mb-3">s
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">User Name</label>
-                <input type="text" class="form-control" name="user" aria-describedby="emailHelp">
+                <input type="text" class="form-control @error('user') is-invalid @enderror" name="user"
+                    aria-describedby="emailHelp">
+                @error('user')
+                    <div class="form-text alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control @error('pass') is-invalid @enderror" name="pass">
+                @error('pass')
+                    <div class="form-text alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Masuk</button>
         </form>
     </div>
 

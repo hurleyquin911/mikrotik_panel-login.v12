@@ -10,9 +10,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $ip = '192.168.1.60';  // Gunakan IP address yang benar
-        $user = 'admin';
-        $pass = 'admin';
+        //statis ip address 192.168.1.60
+
+        $ip = session()->get('ip');  // Gunakan IP address yang benar
+        $user = session()->get('user');
+        $pass = session()->get('pass');
         $API = new RouterosAPI();
         $API->debug(false);
 
