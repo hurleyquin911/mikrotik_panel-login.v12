@@ -13,10 +13,10 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'ip' => 'required',
-            'user' => 'required',
-        ]);
+        // $request->validate([
+        //     'ip' => 'required',
+        //     'username' => 'required',
+        // ]);
 
         $ip = $request->post('ip');
         $user = $request->post('user');
@@ -25,10 +25,8 @@ class AuthController extends Controller
         $data = [
             'ip' => $ip,
             'user' => $user,
-            'pass' => $pass
+            'pass' => $pass,
         ];
-
-        // dd($data);
 
         $request->session()->put($data);
 

@@ -21,7 +21,7 @@ class DashboardController extends Controller
 
         if ($API->connect($ip, $user, $pass)) {
             $identitas = $API->comm('/system/identity/print');
-            $port = $API->comm('/system/gps/print');
+            $port = $API->comm('/system/history/print');
         } else {
             return 'Koneksi anda gagal';
         }
@@ -29,9 +29,10 @@ class DashboardController extends Controller
 
         $data = [
             'identitas' => $identitas[0]['name'],
-            'port' => $port[0]['port'],
+            'port' => $port,
         ];
-        // dd($identitas);
+
+        // dd($identitas); 
 
         return view('dashboard', $data);
     }
