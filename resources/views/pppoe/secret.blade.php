@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <!-- <p class="small">Create a new row using this form, make sure you fill them all</p> -->
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('pppoe.add') }}" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-sm-12">
@@ -85,9 +85,9 @@
                                                             <select name="profile" id="profile" class="form-control"
                                                                 placeholder="Profile">
                                                                 <option disabled selected value="">Pilih</option>
-                                                                {{-- @foreach ($profile as $data)
+                                                                @foreach ($profile as $data)
                                                                     <option>{{ $data['name'] }}</option>
-                                                                @endforeach --}}
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -196,10 +196,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-
-    @include('layouts.footer')
-
     </div>
 @endsection
